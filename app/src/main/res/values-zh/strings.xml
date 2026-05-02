@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZunoKids</string>
+    <string name="fruit_apple">苹果</string>
+    <string name="fruit_banana">香蕉</string>
+    <string name="fruit_mango">芒果</string>
+    <string name="fruit_orange">橙子</string>
+    <string name="fruit_grape">葡萄</string>
+    <string name="fruit_strawberry">草莓</string>
+    <string name="fruit_watermelon">西瓜</string>
+    <string name="fruit_pineapple">菠萝</string>
+    <string name="fruit_cherry">樱桃</string>
+    <string name="fruit_lemon">柠檬</string>
+    <string name="color_red">红色</string>
+    <string name="color_blue">蓝色</string>
+    <string name="color_yellow">黄色</string>
+    <string name="color_green">绿色</string>
+    <string name="color_orange">橙色</string>
+    <string name="color_purple">紫色</string>
+    <string name="color_pink">粉色</string>
+    <string name="color_white">白色</string>
+    <string name="color_black">黑色</string>
+    <string name="color_brown">棕色</string>
+    <string name="object_ball">球</string>
+    <string name="object_book">书</string>
+    <string name="object_chair">椅子</string>
+    <string name="object_cup">杯子</string>
+    <string name="object_door">门</string>
+    <string name="object_tree">树</string>
+    <string name="object_car">汽车</string>
+    <string name="object_sun">太阳</string>
+    <string name="object_star">星星</string>
+    <string name="object_house">房子</string>
+</resources>

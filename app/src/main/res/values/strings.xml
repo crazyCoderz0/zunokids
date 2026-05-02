@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZunoKids</string>
+
+    <!-- Fruits -->
+    <string name="fruit_apple">Apple</string>
+    <string name="fruit_banana">Banana</string>
+    <string name="fruit_mango">Mango</string>
+    <string name="fruit_orange">Orange</string>
+    <string name="fruit_grape">Grapes</string>
+    <string name="fruit_strawberry">Strawberry</string>
+    <string name="fruit_watermelon">Watermelon</string>
+    <string name="fruit_pineapple">Pineapple</string>
+    <string name="fruit_cherry">Cherry</string>
+    <string name="fruit_lemon">Lemon</string>
+
+    <!-- Colors -->
+    <string name="color_red">Red</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_green">Green</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_purple">Purple</string>
+    <string name="color_pink">Pink</string>
+    <string name="color_white">White</string>
+    <string name="color_black">Black</string>
+    <string name="color_brown">Brown</string>
+
+    <!-- Objects -->
+    <string name="object_ball">Ball</string>
+    <string name="object_book">Book</string>
+    <string name="object_chair">Chair</string>
+    <string name="object_cup">Cup</string>
+    <string name="object_door">Door</string>
+    <string name="object_tree">Tree</string>
+    <string name="object_car">Car</string>
+    <string name="object_sun">Sun</string>
+    <string name="object_star">Star</string>
+    <string name="object_house">House</string>
+</resources>

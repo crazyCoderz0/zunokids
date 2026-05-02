@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">ZunoKids</string>
+    <string name="color_black">Black</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_brown">Brown</string>
+    <string name="color_green">Green</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_pink">Pink</string>
+    <string name="color_purple">Purple</string>
+    <string name="color_red">Red</string>
+    <string name="color_white">White</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="default_web_client_id" translatable="false">363588128840-q2mfc02i1d5ndlhov5po0rsf3klm2d6p.apps.googleusercontent.com</string>
+    <string name="fruit_apple">Apple</string>
+    <string name="fruit_banana">Banana</string>
+    <string name="fruit_cherry">Cherry</string>
+    <string name="fruit_grape">Grapes</string>
+    <string name="fruit_lemon">Lemon</string>
+    <string name="fruit_mango">Mango</string>
+    <string name="fruit_orange">Orange</string>
+    <string name="fruit_pineapple">Pineapple</string>
+    <string name="fruit_strawberry">Strawberry</string>
+    <string name="fruit_watermelon">Watermelon</string>
+    <string name="gcm_defaultSenderId" translatable="false">363588128840</string>
+    <string name="google_api_key" translatable="false">AIzaSyBTpCTe5hxHz568oQyeXUJGw6_W4_9b4VA</string>
+    <string name="google_app_id" translatable="false">1:363588128840:android:c88d598e84877908bf887d</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBTpCTe5hxHz568oQyeXUJGw6_W4_9b4VA</string>
+    <string name="google_storage_bucket" translatable="false">zunokids-5f453.firebasestorage.app</string>
+    <string name="object_ball">Ball</string>
+    <string name="object_book">Book</string>
+    <string name="object_car">Car</string>
+    <string name="object_chair">Chair</string>
+    <string name="object_cup">Cup</string>
+    <string name="object_door">Door</string>
+    <string name="object_house">House</string>
+    <string name="object_star">Star</string>
+    <string name="object_sun">Sun</string>
+    <string name="object_tree">Tree</string>
+    <string name="project_id" translatable="false">zunokids-5f453</string>
+    <style name="Theme.ZunoKids" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

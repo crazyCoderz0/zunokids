@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "363588128840",
+    "project_id": "zunokids-5f453",
+    "storage_bucket": "zunokids-5f453.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363588128840:android:c88d598e84877908bf887d",
+        "android_client_info": {
+          "package_name": "com.crazycoderz.zunokids"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363588128840-q2mfc02i1d5ndlhov5po0rsf3klm2d6p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTpCTe5hxHz568oQyeXUJGw6_W4_9b4VA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363588128840-q2mfc02i1d5ndlhov5po0rsf3klm2d6p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

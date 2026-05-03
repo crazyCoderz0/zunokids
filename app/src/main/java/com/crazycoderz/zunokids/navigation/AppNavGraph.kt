@@ -24,6 +24,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import com.crazycoderz.zunokids.ui.numbers.NumbersScreen
 import com.crazycoderz.zunokids.ui.objects.ObjectsScreen
+import com.crazycoderz.zunokids.ui.parent.DeleteAccountScreen
 import com.crazycoderz.zunokids.ui.parent.ParentDashboardScreen
 import com.crazycoderz.zunokids.ui.splash.SplashScreen
 import com.google.firebase.auth.FirebaseAuth
@@ -101,6 +102,20 @@ fun AppNavGraph(navController: NavHostController) {
                 onBack = { navController.popBackStack() },
                 onLogout = {
                     FirebaseAuth.getInstance().signOut()
+                    navController.navigate(Screen.Login.route) {
+                        popUpTo(0) { inclusive = true }
+                    }
+                },
+                onDeleteAccount = {
+                    navController.navigate(Screen.DeleteAccount.route)
+                }
+            )
+        }
+
+        composable(Screen.DeleteAccount.route) {
+            DeleteAccountScreen(
+                onBack = { navController.popBackStack() },
+                onAccountDeleted = {
                     navController.navigate(Screen.Login.route) {
                         popUpTo(0) { inclusive = true }
                     }

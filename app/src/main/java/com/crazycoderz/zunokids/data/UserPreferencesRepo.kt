@@ -133,6 +133,10 @@ class UserPreferencesRepo @Inject constructor(
             prefs[TOTAL_TIME_SPENT] = (prefs[TOTAL_TIME_SPENT] ?: 0) + minutes
         }
     }
+
+    suspend fun clearAllData() {
+        context.dataStore.edit { it.clear() }
+    }
 }
 
 data class UserStats(

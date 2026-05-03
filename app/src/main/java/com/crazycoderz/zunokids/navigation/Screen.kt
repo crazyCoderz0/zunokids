@@ -17,6 +17,7 @@ sealed class Screen(val route: String) {
     object Objects : Screen("objects")
     
     object Parent : Screen("parent")
+    object DeleteAccount : Screen("delete_account")
     
     // New Games
     object Quiz : Screen("quiz")

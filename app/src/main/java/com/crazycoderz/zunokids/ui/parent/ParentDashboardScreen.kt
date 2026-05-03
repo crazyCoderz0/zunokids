@@ -23,6 +23,7 @@ import com.crazycoderz.zunokids.ui.theme.SunshineYellow
 fun ParentDashboardScreen(
     onBack: () -> Unit,
     onLogout: () -> Unit,
+    onDeleteAccount: () -> Unit,
     viewModel: ParentViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -35,7 +36,7 @@ fun ParentDashboardScreen(
             onBack = onBack
         )
     } else {
-        DashboardContent(uiState, onBack, onLogout)
+        DashboardContent(uiState, onBack, onLogout, onDeleteAccount)
     }
 }
 
@@ -123,7 +124,12 @@ fun ParentLockScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DashboardContent(uiState: ParentUiState, onBack: () -> Unit, onLogout: () -> Unit) {
+fun DashboardContent(
+    uiState: ParentUiState,
+    onBack: () -> Unit,
+    onLogout: () -> Unit,
+    onDeleteAccount: () -> Unit
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -134,8 +140,8 @@ fun DashboardContent(uiState: ParentUiState, onBack: () -> Unit, onLogout: () ->
                     }
                 },
                 actions = {
-                    IconButton(onClick = onLogout) {
-                        Text("Logout", color = Color.White, modifier = Modifier.padding(end = 8.dp))
+                    TextButton(onClick = onLogout) {
+                        Text("Logout", color = Color.White)
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -158,6 +164,17 @@ fun DashboardContent(uiState: ParentUiState, onBack: () -> Unit, onLogout: () ->
             StatsCard("Daily Streak", "🔥 ${uiState.stats.streakCount} Days", Color(0xFFFF6B6B))
             StatsCard("Learning Time", "⏱️ ${uiState.stats.totalTimeSpent} Minutes", Color(0xFF4ECDC4))
             
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Button(
+                onClick = onDeleteAccount,
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF4D4D)),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Text("Delete Profile", color = Color.White, fontWeight = FontWeight.Bold)
+            }
+
             Text(
                 "Completed Modules",
                 style = MaterialTheme.typography.titleLarge,

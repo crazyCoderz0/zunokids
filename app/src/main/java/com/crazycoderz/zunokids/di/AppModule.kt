@@ -4,6 +4,8 @@ import android.content.Context
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
 import com.crazycoderz.zunokids.data.TtsManager
 import com.crazycoderz.zunokids.data.UserPreferencesRepo
 import com.crazycoderz.zunokids.data.repository.AuthRepository
@@ -35,6 +37,10 @@ abstract class AppModule {
         @Provides
         @Singleton
         fun provideFirebaseAuth(): FirebaseAuth = Firebase.auth
+
+        @Provides
+        @Singleton
+        fun provideFirestore(): FirebaseFirestore = Firebase.firestore
 
         @Provides
         @Singleton

@@ -8,4 +8,6 @@ interface AuthRepository {
     suspend fun login(email: String, password: String): Result<AuthUser>
     suspend fun signUp(email: String, password: String): Result<AuthUser>
     suspend fun signOut()
+    suspend fun deleteAccount(): Result<Unit>
+    suspend fun reauthenticate(password: String): Result<Unit>
 }

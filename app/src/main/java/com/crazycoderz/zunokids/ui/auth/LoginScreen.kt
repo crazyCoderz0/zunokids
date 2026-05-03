@@ -35,12 +35,23 @@ fun LoginScreen(
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var showForgotPasswordDialog by remember { mutableStateOf(false) }
     val uiState by viewModel.uiState.collectAsState()
 
     LaunchedEffect(uiState) {
         if (uiState is AuthState.Authenticated) {
             onLoginSuccess()
         }
+    }
+
+    if (showForgotPasswordDialog) {
+        ForgotPasswordDialog(
+            onDismiss = { showForgotPasswordDialog = false },
+            onSend = { resetEmail ->
+                viewModel.sendPasswordResetEmail(resetEmail)
+                showForgotPasswordDialog = false
+            }
+        )
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
@@ -109,7 +120,19 @@ fun LoginScreen(
                 )
             )
 
-            Spacer(Modifier.height(32.dp))
+            Box(
+                modifier = Modifier.fillMaxWidth(),
+                contentAlignment = Alignment.CenterEnd
+            ) {
+                TextButton(
+                    onClick = { showForgotPasswordDialog = true },
+                    enabled = uiState !is AuthState.Loading
+                ) {
+                    Text("Forgot Password?", color = Color(0xFF2C3E50), fontWeight = FontWeight.Bold)
+                }
+            }
+
+            Spacer(Modifier.height(16.dp))
 
             if (uiState is AuthState.Loading) {
                 CircularProgressIndicator(color = KidsBlue)
@@ -136,6 +159,21 @@ fun LoginScreen(
                 }
             }
 
+            if (uiState is AuthState.Success) {
+                Card(
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9)),
+                    shape = RoundedCornerShape(12.dp),
+                    modifier = Modifier.padding(top = 16.dp)
+                ) {
+                    Text(
+                        text = (uiState as AuthState.Success).message,
+                        color = Color(0xFF2E7D32),
+                        modifier = Modifier.padding(8.dp),
+                        fontSize = 14.sp
+                    )
+                }
+            }
+
             Spacer(Modifier.height(16.dp))
 
             TextButton(
@@ -146,4 +184,45 @@ fun LoginScreen(
             }
         }
     }
+}
+
+@Composable
+fun ForgotPasswordDialog(
+    onDismiss: () -> Unit,
+    onSend: (String) -> Unit
+) {
+    var email by remember { mutableStateOf("") }
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Forgot Password") },
+        text = {
+            Column {
+                Text("Enter your email to receive a password reset link.")
+                Spacer(Modifier.height(16.dp))
+                OutlinedTextField(
+                    value = email,
+                    onValueChange = { email = it.trim() },
+                    label = { Text("Email") },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(12.dp),
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+                )
+            }
+        },
+        confirmButton = {
+            Button(
+                onClick = { if (email.isNotBlank()) onSend(email) },
+                colors = ButtonDefaults.buttonColors(containerColor = KidsBlue)
+            ) {
+                Text("Send Link")
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Cancel")
+            }
+        }
+    )
 }

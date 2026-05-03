@@ -28,6 +28,30 @@ fun ParentDashboardScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val isAuthorized by viewModel.isAuthorized.collectAsState()
+    var showLogoutDialog by remember { mutableStateOf(false) }
+
+    if (showLogoutDialog) {
+        AlertDialog(
+            onDismissRequest = { showLogoutDialog = false },
+            title = { Text("Logout") },
+            text = { Text("Are you sure you want to logout?") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showLogoutDialog = false
+                        onLogout()
+                    }
+                ) {
+                    Text("Yes", color = Color.Red)
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showLogoutDialog = false }) {
+                    Text("No")
+                }
+            }
+        )
+    }
 
     if (!isAuthorized) {
         ParentLockScreen(
@@ -36,7 +60,12 @@ fun ParentDashboardScreen(
             onBack = onBack
         )
     } else {
-        DashboardContent(uiState, onBack, onLogout, onDeleteAccount)
+        DashboardContent(
+            uiState = uiState,
+            onBack = onBack,
+            onLogout = { showLogoutDialog = true },
+            onDeleteAccount = onDeleteAccount
+        )
     }
 }
 

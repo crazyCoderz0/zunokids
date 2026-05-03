@@ -14,6 +14,7 @@ sealed class AuthState {
     object Idle : AuthState()
     object Loading : AuthState()
     object Authenticated : AuthState()
+    data class Success(val message: String) : AuthState()
     data class Error(val message: String) : AuthState()
 }
 
@@ -60,6 +61,29 @@ class AuthViewModel @Inject constructor(
                 }
                 .onFailure { 
                     _uiState.value = AuthState.Error(it.message ?: "Signup failed") 
+                }
+        }
+    }
+
+    fun sendPasswordResetEmail(email: String) {
+        val trimmedEmail = email.trim()
+        if (trimmedEmail.isBlank()) {
+            _uiState.value = AuthState.Error("Email cannot be empty")
+            return
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(trimmedEmail).matches()) {
+            _uiState.value = AuthState.Error("Please enter a valid email address")
+            return
+        }
+
+        viewModelScope.launch {
+            _uiState.value = AuthState.Loading
+            authRepository.sendPasswordResetEmail(trimmedEmail)
+                .onSuccess {
+                    _uiState.value = AuthState.Success("If this email is registered, a password reset link has been sent.")
+                }
+                .onFailure {
+                    _uiState.value = AuthState.Error(it.message ?: "Failed to send reset email")
                 }
         }
     }

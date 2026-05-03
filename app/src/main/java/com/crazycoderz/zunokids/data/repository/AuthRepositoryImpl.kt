@@ -69,14 +69,14 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun deleteAccount(): Result<Unit> = try {
         val user = firebaseAuth.currentUser ?: throw Exception("No user logged in")
-        val userId = user.uid
-
-        // BEST PRACTICE: Delete Firestore document FIRST while authenticated
-        firestore.collection("users").document(userId).delete().await()
-
-        // THEN delete the Auth user
         user.delete().await()
+        Result.success(Unit)
+    } catch (e: Exception) {
+        Result.failure(mapFirebaseException(e))
+    }
 
+    override suspend fun sendPasswordResetEmail(email: String): Result<Unit> = try {
+        firebaseAuth.sendPasswordResetEmail(email).await()
         Result.success(Unit)
     } catch (e: Exception) {
         Result.failure(mapFirebaseException(e))
